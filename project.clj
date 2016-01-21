@@ -8,9 +8,9 @@
                  [cheshire "5.2.0"]
                  [ring-server "0.3.1"]]
   :plugins [[lein-ring "0.9.7"]]
-  :ring {:handler liberator-service.handler/app
-         :init liberator-service.handler/init
-         :destroy liberator-service.handler/destroy}
+  :ring {:handler key-translation.handler/app
+         :init key-translation.handler/init
+         :destroy key-translation.handler/destroy}
   :profiles
   {:uberjar {:aot :all}
    :production
