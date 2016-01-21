@@ -35,12 +35,13 @@
            tenant-id (str (get-in context [:request :route-params :tenant]))
            payload (str (get-in context [:request :route-params :payload]))
            event-file (get-in context [:request :multipart-params "event"])
-           id-file (get-in context [:request :multipart-params "id"])]
+           id-file (get-in context [:request :multipart-params "id"])
+           upload-file (partial upload-file tenant-id)]
            ;;(clojure.pprint/pprint context)
            ;;(clojure.pprint/pprint (:file context))
            ;;(def ctx context)
-           (upload-file tenant-id "event" event-file)
-           (upload-file tenant-id "id" id-file)
+           (upload-file "event" event-file)
+           (upload-file "id" id-file)
               (swap! events merge @events {tenant-id payload})))
   :handle-created (fn [_] (generate-string @events))
   :available-media-types ["application/json"])
