@@ -8,13 +8,17 @@
 
 (def events (atom {}))
 
+(defn- route-param [context var-name]
+  (get-in context [:request :route-params var-name]))
+
 (defresource get-events
   :allowed-methods [:get]
   :malformed? (fn [context]
-                          (let [tenant-id (str (get-in context [:request :route-params :tenant]))]
+                          (let [tenant-id (route-param context :tenant)]
+                            (println tenant-id)
                             (empty? (get @events tenant-id))))
   :handle-ok (fn [context] 
-                      (let [tenant-id (str (get-in context [:request :route-params :tenant]))]
+                      (let [tenant-id (route-param context :tenant)]
                         (get @events tenant-id)))
   :available-media-types ["application/json"])
 
