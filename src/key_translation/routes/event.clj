@@ -48,8 +48,7 @@
   :allowed-methods [:post]
   :post! 
   (fn [context]
-    (let [form-params (get-in context [:request :form-params])
-           tenant-id (str (get-in context [:request :route-params :tenant]))
+    (let [tenant-id (str (get-in context [:request :route-params :tenant]))
            payload (str (get-in context [:request :route-params :payload]))
            event-file (get-in context [:request :multipart-params "event"])
            id-file (get-in context [:request :multipart-params "id"])
