@@ -48,8 +48,8 @@
   :allowed-methods [:post]
   :post! 
   (fn [context]
-    (let [tenant-id (str (get-in context [:request :route-params :tenant]))
-           payload (str (get-in context [:request :route-params :payload]))
+    (let [tenant-id (get-in context [:request :route-params :tenant])
+           payload (get-in context [:request :route-params :payload])
            event-file (get-in context [:request :multipart-params "event"])
            id-file (get-in context [:request :multipart-params "id"])
            updated-event (update-event (id-file :tempfile))
