@@ -6,6 +6,7 @@
                  [hiccup "1.0.5"]
                  [liberator "0.14.0"]
                  [cheshire "5.2.0"]
+                 [org.clojure/data.csv "0.1.3"]
                  [ring-server "0.3.1"]]
   :plugins [[lein-ring "0.9.7"]]
   :ring {:handler key-translation.handler/app
