@@ -31,7 +31,9 @@
                      (-> [(clojure.string/trim (second row))  (clojure.string/trim (nth row 2))]))]
 
     (let [contents (doall (csv/read-csv in-file))]
-           (into {} (map process-row contents))))))
+      (->> contents
+        (map process-row)
+        (into {}))))))
 
 
 (defn upload-file [tenant-id folder file]
