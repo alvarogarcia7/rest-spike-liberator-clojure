@@ -11,7 +11,8 @@
   :plugins [[lein-ring "0.9.7"]]
   :ring {:handler key-translation.handler/app
          :init key-translation.handler/init
-         :destroy key-translation.handler/destroy}
+         :destroy key-translation.handler/destroy
+         :uberwar-name "kt-ws-rest.war"}
   :profiles
   {:uberjar {:aot :all}
    :production
