@@ -13,7 +13,7 @@
   (testing "add and retrieve a response"
     (let [
 
-            request2 (assoc (request :post "/1003/23/event")
+            request2 (assoc (request :post "/1003/23")
                                       :multipart-params    {"id"
                                                                          {:filename "vc.csv",
                                                                           :content-type "application/octet-stream",

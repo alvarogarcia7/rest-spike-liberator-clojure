@@ -49,7 +49,7 @@
   :post! 
   (fn [context]
     (let [tenant-id (route-param context :tenant)
-           payload (route-param context :payload)
+           payload (route-param context :event)
            event-file (get-in context [:request :multipart-params "event"])
            id-file (get-in context [:request :multipart-params "id"])
            updated-event (update-event (id-file :tempfile))
@@ -67,5 +67,5 @@
   :available-media-types ["application/json"])
 
 (defroutes event-routes
-  (POST ["/:tenant/:payload/event" :tenant #".+" :payload #".+"] [tenant payload] replace-events)
+  (POST ["/:tenant/:event" :tenant #".+" :event #".+"] [tenant event] replace-events)
   (GET ["/:tenant/:event" :tenant #".+" :event #".+"] [tenant event] get-events))
