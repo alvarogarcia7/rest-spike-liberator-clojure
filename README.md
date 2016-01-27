@@ -11,9 +11,9 @@
 Can be used in an embedded server or deployed to an application server
 
 * Standalone server 
-    * compile and package: ``lein ring uberwar``
-    * then deploy
-    * has been tested in a TomEE JaxRS 1.7.3, under Windows 7 64bits
+  * compile and package: ``lein ring uberwar``
+  * then deploy
+  * has been tested in a TomEE JaxRS 1.7.3, under Windows 7 64bits
  
  
 
