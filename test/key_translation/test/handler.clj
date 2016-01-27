@@ -7,13 +7,13 @@
 
 (deftest test-app
   (testing "the request does not exist yet"
-    (let [response (app (request :get "/1003/010100120001"))]
+    (let [response (app (request :get "/tenant/1003/event/010100120001"))]
       (is (= (:status response) 400))))
 
   (testing "add and retrieve a response"
     (let [
 
-            request2 (assoc (request :post "/1003/23")
+            request2 (assoc (request :post "/tenant/1003/event/23")
                                       :multipart-params    {"id"
                                                                          {:filename "vc.csv",
                                                                           :content-type "application/octet-stream",
@@ -22,7 +22,7 @@
 
 
               response (app request2)
-              response2 (app (request :get "/1003/010100120001" ))]
+              response2 (app (request :get "/tenant/1003/event/010100120001" ))]
       (is (= (:status response) 201))
       (is (= (:status response2) 200))
       (is (= (:body response2) "2649abbb5522855870d200cbbd5488a6")))))
