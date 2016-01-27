@@ -4,7 +4,6 @@
   * Only a backend, to be consumed via REST API
   * Multi-tenant structure
   * In-memory (``atom``) persistence
-  * 
   
 ## Deployment
 
