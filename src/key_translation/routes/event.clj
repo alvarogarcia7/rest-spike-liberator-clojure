@@ -66,5 +66,5 @@
   :available-media-types ["application/json"])
 
 (defroutes event-routes
-  (POST ["/tenant/:tenant/event/:event" :tenant #".+" :event #".+"] [tenant event] replace-events)
-  (GET ["/tenant/:tenant/event/:event" :tenant #".+" :event #".+"] [tenant event] get-events))
+  (POST ["/tenants/:tenant/events/:event" :tenant #".+" :event #".+"] [tenant event] replace-events)
+  (GET ["/tenants/:tenant/events/:event" :tenant #".+" :event #".+"] [tenant event] get-events))
