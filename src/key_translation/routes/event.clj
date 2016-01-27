@@ -56,7 +56,6 @@
            event-by-tenant {tenant-id updated-event}
            upload-file (partial upload-file tenant-id)
            ]
-           (clojure.pprint/pprint context)
            ;;(clojure.pprint/pprint (:file context))
            ;;(def ctx context)
            ;;(if event-file (upload-file "event" event-file))
